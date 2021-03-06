@@ -26,7 +26,7 @@ else {
         },
         success: function (response) {
             //show welcome msg...
-            alert('hiiiiiiii<3'+ response.display_name)
+            alert('you have a new Spotify Token '+ response.display_name)
         },
         error: function (jqXHR, status, err) {
             var spotifyTokenLabel = 'spotifyToken';
