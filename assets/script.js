@@ -31,7 +31,7 @@ else {
         error: function (jqXHR, status, err) {
             var spotifyTokenLabel = 'spotifyToken';
             localStorage.removeItem(spotifyTokenLabel)
-            document.location = 'https://accounts.spotify.com/authorize?client_id=8500729d9a47478fb0bd212d4e8e309e&response_type=token&redirect_uri=https://raynagweinreb.github.io/MoodMuse/test.html';
+            document.location = 'https://accounts.spotify.com/authorize?client_id=8500729d9a47478fb0bd212d4e8e309e&scope=streaming%20user-read-private%20user-read-email&response_type=token&redirect_uri=https://raynagweinreb.github.io/MoodMuse/test.html';
         }
     })
 }
