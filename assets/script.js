@@ -19,7 +19,18 @@ if(!spotifyToken){
 }
 else{
     //move to second page
-}
+    $.ajax({
+        url: 'https://api.spotify.com/v1/me',
+        headers: {
+            'Authorization': 'Bearer ' + spotifyToken
+        },
+        success: function(response) {
+            //show welcome msg...
+        },
+        error: function (jqXHR, status, err) {
+            alert("Local error callback.");
+          }        
+        })
 var getUserId = function () {
     var queryString = document.location.search;
     var userId = queryString.split('=')[0];
