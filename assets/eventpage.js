@@ -2,9 +2,14 @@
 
 
 var getUserId = function () {
-    var urlParams = new URLSearchParams(document.location.hash);
+    //replacing # in url to ? so we can use .search
+    var urlLocation = new URL(window.location.href.replace(/#/g,'?'))
+
+   
+    var urlParams = new URLSearchParams(urlLocation.search);
+
     
-   // console.log(userId)
+   // user Token is stored in LS
   
     if (urlParams.has('access_token')) {
         var userToken = urlParams.get('access_token');
