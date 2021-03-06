@@ -25,4 +25,5 @@ window.onSpotifyWebPlaybackSDKReady = () => {
     });
   
     // Connect to the player!
-    pla
+    player.connect();
+};
