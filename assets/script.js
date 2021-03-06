@@ -48,3 +48,4 @@ var getUserId = function () {
         document.location.replace('./index.html');
     }
 };
+
