@@ -8,7 +8,7 @@ buttonVal = $('#button-container')
 buttonVal.on('click', 'button', function (event) {
     event.preventDefault();
     var mood = $(this).text();
-    console.log(mood)
+    console.log(mood);
 })
 
 var spotifyTokenLabel = 'spotifyToken'
