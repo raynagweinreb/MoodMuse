@@ -33,7 +33,7 @@ else{
             localStorage.removeItem(spotifyTokenLabel)
             document.location = 'https://accounts.spotify.com/authorize?client_id=8500729d9a47478fb0bd212d4e8e309e&response_type=token&redirect_uri=https://raynagweinreb.github.io/MoodMuse/test.html';
           }        
-        })
+        })};
 var getUserId = function () {
     var queryString = document.location.search;
     var userId = queryString.split('=')[0];
