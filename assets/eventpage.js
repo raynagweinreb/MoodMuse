@@ -2,7 +2,7 @@
 
 
 var getUserId = function () {
-    var urlParams = new URLSearchParams(document.location.search);
+    var urlParams = new URLSearchParams(document.location.hash);
     
    // console.log(userId)
   
