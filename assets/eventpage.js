@@ -4,7 +4,7 @@
 var getUserId = function () {
     var urlParams = new URLSearchParams(document.location.search);
     
-    console.log(userId)
+   // console.log(userId)
   
     if (urlParams.has('access_token')) {
         var userToken = urlParams.get('access_token');
