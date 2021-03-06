@@ -1,21 +1,14 @@
-const APIController = (function(){
+//developClientId = '8500729d9a47478fb0bd212d4e8e309e'
 
-    const clientId = '';
-    const clientSecret = '';
-
-    //private methods
-    const _getToken = async () => {
-
-        const result = await fetch('https://accounts.spotify.com/api/token', {
-            method: 'POST',
-            headers: {
-                'Content-Type' : 'application/x-ww-form-urlencoded',
-                'Authorization' : 'Basic' + btoa(clientId + ':' +clientSecret)
-            },
-            body: 'grant_type-client_credentials'
-        });
-        const data = await result.json();
-        return data.access_token;
-    }
-
-})();
+getUserId()
+var getUserId = function () {
+    var urlParams = new URLSearchParams(document.location.search);
+    
+    console.log(userId)
+  
+    if (urlParams.has('access_token')) {
+        var userToken = urlParams.get('access_token');
+        var spotifyTokenLabel = 'spotifyToken';
+        localStorage.setItem(spotifyTokenLabel, userToken);
+      document.location.replace('./index.html');
+  }}
