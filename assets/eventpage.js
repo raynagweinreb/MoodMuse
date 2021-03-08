@@ -1,20 +1,47 @@
-//developClientId = '8500729d9a47478fb0bd212d4e8e309e'
+var userInputEl = document.getElementById('user-input');
+var searchBtn = document.getElementById('button-addon2');
+var eventList = document.getElementById('event-list')
 
 
-var getUserId = function () {
-    //replacing # in url to ? so we can use .search
-    var urlLocation = new URL(window.location.href.replace(/#/g,'?'))
-
-   
-    var urlParams = new URLSearchParams(urlLocation.search);
-
+var inputSubmitCity = function(event){
+    event.preventDefault();
+    //extracts user input into variable city
+    var city = userInputEl.value.trim();
     
-   // user Token is stored in LS
-  
-    if (urlParams.has('access_token')) {
-        var userToken = urlParams.get('access_token');
-        var spotifyTokenLabel = 'spotifyToken';
-        localStorage.setItem(spotifyTokenLabel, userToken);
-      document.location.replace('./index.html');
-  }}
-  getUserId()
+    //checking that the user has an input 
+    if(city){
+        localStorage.setItem('city', JSON.stringify(city));
+        getCityEvents(city);
+        //reset the container of information
+    } else {
+        alert('Please enter a City');
+    }
+};
+
+var getCityEvents = function(city){
+    var apiUrl ='https://app.ticketmaster.com/discovery/v2/events.json?classificationName=music&city='+city+'&apikey=aPKIA6CVjGW2yNrfkm1UthZ7kYcsq7Ph'
+    fetch(apiUrl)
+    .then(function(response){
+        return response.json()
+    })
+    .then(function(data){
+        for (var i = 0; i < 6; i++ ){
+            var eventLinkEl = document.createElement('a');
+            eventLinkEl.setAttribute('href', data._embedded.events[i].url);
+            eventLinkEl.setAttribute('target', '_blank');
+
+            var titleEl = document.createElement('span');
+            titleEl.textContent = data._embedded.events[i].name;
+            var br = document.createElement('br');
+            eventLinkEl.appendChild(titleEl);
+            eventLinkEl.appendChild(br);
+            eventList.appendChild(eventLinkEl);
+
+        }
+        console.log(data)
+    })
+    
+}
+
+
+searchBtn.addEventListener('click', inputSubmitCity);
