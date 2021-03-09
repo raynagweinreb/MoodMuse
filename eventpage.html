@@ -1,60 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
-    <link rel="stylesheet" href="assets/style.css">
-    <title>Artist & Date</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+  <link rel="stylesheet" href="assets/style.css">
+  <title>Artist & Date</title>
 </head>
+
 <body>
-    <div id="contain-wrap">
-        <section class="hero is-large is-link" id = 'hero-contain'>
-          <div class="hero-body">
-              <p class="spotifyText">Want to find concerts near you?</p>
-              <div class="field">
-                  <p class="control has-icons-left has-icons-right">
-                    <input type="text" class="form-control" placeholder="City" id="user-input" aria-label="Recipient's username"
-                aria-describedby="button-addon2">
-                <button class="btn btn-info" type="button" id="button-addon2">Button</button>
-                    <span class="icon is-small is-left">
-                      <i class="fas fa-envelope"></i>
-                    </span>
-                    <span class="icon is-small is-right">
-                      <i class="fas fa-check"></i>
-                    </span>
-                  </p>
-                </div>
-                <div class="field">
-                  <p class="control has-icons-left">
-                    
-                    <span class="icon is-small is-left">
-                      <i class="fas fa-lock"></i>
-                    </span>
-                  </p>
-                  
-                </div>
-            <p class="title">
-              MoodMuse
-            </p>
-            <p class="subtitle">
-              <section >
-                <div id = 'event-container' class = "container is-fluid" >
-                        <ul id ='event-list'>
-                        
-                        </ul>
-                    </div>
-                </div>
-            </section>
-          </div> 
-            </p>
+  <div id="contain-wrap">
+    <section class="hero is-large is-link" id='hero-contain'>
+      <div class="hero-body">
+        <p class="spotifyText">Want to find events near you?</p>
+        <div class="field">
+          <p class="control has-icons-left has-icons-right">
+            <input type="text" class="form-control" placeholder="City" id="user-input" aria-label="Recipient's username"
+              aria-describedby="button-addon2">
+            <button class="btn btn-info" type="button" id="button-addon2">Button</button>
+            <span class="icon is-small is-left">
+              <i class="fas fa-envelope"></i>
+            </span>
+            <span class="icon is-small is-right">
+              <i class="fas fa-check"></i>
+            </span>
+          </p>
+        </div>
+        <div class="field">
+          <p class="control has-icons-left">
+
+            <span class="icon is-small is-left">
+              <i class="fas fa-lock"></i>
+            </span>
+          </p>
+
+        </div>
+        <p class="title">
+          MoodMuse
+        </p>
+        <p class="subtitle">
+        <section>
+          <div id='event-container' class="container is-fluid">
+            <ul id='event-list'>
+            </ul>
           </div>
         </section>
-  </div>  
-    
-    
-    <script src="assets/eventpage.js"></script>
-  
+        <div id='picture-container'>
+        </div>
+      </div>
+    </section>
+  </div>
+
+
+  <script src="assets/eventpage.js"></script>
+
 </body>
+
 </html>

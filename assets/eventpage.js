@@ -1,6 +1,7 @@
 var userInputEl = document.getElementById('user-input');
 var searchBtn = document.getElementById('button-addon2');
 var eventList = document.getElementById('event-list')
+var picList = document.getElementById('picture-container')
 
 
 var inputSubmitCity = function(event){
@@ -25,6 +26,8 @@ var getCityEvents = function(city){
         return response.json()
     })
     .then(function(data){
+        eventList.textContent='';
+        picList.textContent='';
         for (var i = 0; i < 6; i++ ){
             var eventLinkEl = document.createElement('a');
             eventLinkEl.setAttribute('href', data._embedded.events[i].url);
@@ -37,6 +40,17 @@ var getCityEvents = function(city){
             eventLinkEl.appendChild(br);
             eventList.appendChild(eventLinkEl);
 
+            var pictureLinkEl = document.createElement('a');
+            pictureLinkEl.setAttribute('href',data._embedded.events[i].url);
+            var img = document.createElement('img');
+            img.src = data._embedded.events[i].images[i].url
+            pictureLinkEl.setAttribute('target', '_blank');
+            
+            pictureLinkEl.appendChild(br);
+            picList.appendChild(pictureLinkEl);
+            picList.appendChild(img)
+
+            
         }
         console.log(data)
     })
