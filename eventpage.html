@@ -11,42 +11,40 @@
 </head>
 
 <body>
+  <!--This wrap might move, if we use it, it'll wrap the entire content of the body-->
   <div id="contain-wrap">
+    <!--This hero is the container that is blue-->
     <section class="hero is-large is-link" id='hero-contain'>
       <div class="hero-body">
         <p class="spotifyText">Want to find events near you?</p>
         <div class="field">
-          <p class="control has-icons-left has-icons-right">
+          <!--Input field for user to type what city they want to search for-->
+          <!--TODO: aling the text box -->
             <input type="text" class="form-control" placeholder="City" id="user-input" aria-label="Recipient's username"
               aria-describedby="button-addon2">
-            <button class="btn btn-info" type="button" id="button-addon2">Button</button>
-            <span class="icon is-small is-left">
-              <i class="fas fa-envelope"></i>
-            </span>
-            <span class="icon is-small is-right">
-              <i class="fas fa-check"></i>
-            </span>
-          </p>
-        </div>
-        <div class="field">
-          <p class="control has-icons-left">
-
-            <span class="icon is-small is-left">
-              <i class="fas fa-lock"></i>
-            </span>
-          </p>
-
+              <!--button that will search for the city-->
+            <button class="button is-success is-rounded " type="button" id="button-addon2">Search</button>
         </div>
         <p class="title">
           MoodMuse
         </p>
         <p class="subtitle">
+          <!-- Modal to prompt user to enter a city-->
+        <div id="myModal" class="modal">
+          <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>Please enter a city name.</p>
+          </div>
+        </div>
         <section>
+          <!--Container that holds results from the user input-->
           <div id='event-container' class="container is-fluid">
             <ul id='event-list'>
             </ul>
           </div>
         </section>
+        <!--pics of the event. -->
+        <!--ToDo: add a hover over the link of the event to then show the image-->
         <div id='picture-container'>
         </div>
       </div>

@@ -1,7 +1,9 @@
 var userInputEl = document.getElementById('user-input');
 var searchBtn = document.getElementById('button-addon2');
-var eventList = document.getElementById('event-list')
-var picList = document.getElementById('picture-container')
+var eventList = document.getElementById('event-list');
+var picList = document.getElementById('picture-container');
+var modal = document.getElementById("myModal");
+var span = document.getElementsByClassName("close")[0];
 
 
 var inputSubmitCity = function(event){
@@ -13,45 +15,64 @@ var inputSubmitCity = function(event){
     if(city){
         localStorage.setItem('city', JSON.stringify(city));
         getCityEvents(city);
-        //reset the container of information
     } else {
-        alert('Please enter a City');
+        //this should send modal alert to the user if they do not enter a city
+        modal.style.display = "block";
+        //if the user clicks on the span, the modal will close
+        span.onclick = function() {
+            modal.style.display = "none";
+          }
+          //if the user clicks anywhere on the page the modal will close 
+          window.onclick = function(event) {
+            if (event.target == modal) {
+              modal.style.display = "none";
+            }
+          }
+        
     }
 };
 
 var getCityEvents = function(city){
+    //api for ticketmaster, searching for music events by city
     var apiUrl ='https://app.ticketmaster.com/discovery/v2/events.json?classificationName=music&city='+city+'&apikey=aPKIA6CVjGW2yNrfkm1UthZ7kYcsq7Ph'
     fetch(apiUrl)
     .then(function(response){
         return response.json()
     })
     .then(function(data){
+        //clearing the eventList and picList containers
         eventList.textContent='';
         picList.textContent='';
+        //this for loop will create 6 hyperlinks to events found by city. 
         for (var i = 0; i < 6; i++ ){
             var eventLinkEl = document.createElement('a');
+            //this link will send the user to Ticketmaster's page about the event
             eventLinkEl.setAttribute('href', data._embedded.events[i].url);
             eventLinkEl.setAttribute('target', '_blank');
-
             var titleEl = document.createElement('span');
+            //The name of the event taken from the api data
             titleEl.textContent = data._embedded.events[i].name;
+            //appending a line break
             var br = document.createElement('br');
+            //appending the api data to the container 
             eventLinkEl.appendChild(titleEl);
             eventLinkEl.appendChild(br);
             eventList.appendChild(eventLinkEl);
-
+            //creating a link from the picture to send the user to the event page.
             var pictureLinkEl = document.createElement('a');
             pictureLinkEl.setAttribute('href',data._embedded.events[i].url);
+            //linking the image to the page 
             var img = document.createElement('img');
             img.src = data._embedded.events[i].images[i].url
             pictureLinkEl.setAttribute('target', '_blank');
-            
+            //appening the image to the image container
             pictureLinkEl.appendChild(br);
             picList.appendChild(pictureLinkEl);
             picList.appendChild(img)
 
             
         }
+        //TESTING FUNCTION
         console.log(data)
     })
     
