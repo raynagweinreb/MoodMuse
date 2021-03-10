@@ -1,109 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
-    <link rel="stylesheet" href="assets/style.css">
-    <title>Artist & Date</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+  <link rel="stylesheet" href="assets/style.css">
+  <title>Artist & Date</title>
 </head>
+
 <body>
-    <nav class="navbar" role="navigation" aria-label="main navigation">
-        <div class="navbar-brand">
-          <!-- <a class="navbar-item" href="https://bulma.io">
-            <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
-          </a> -->
-      
-          <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-          </a>
+
+  <!--This hero is the container that is blue-->
+  <section class="hero is-large is-link" id='hero-contain'>
+    <div class="hero-body">
+      <img id='circle-1' src='assets/images/pngfind.com-white-circles-png-3619117.png'>
+      <img id='circle-2' src='assets/images/pngfind.com-white-circles-png-3619117.png'>
+      <p class="spotifyText">Want to find events near you?</p>
+      <div class="field">
+        <!--Input field for user to type what city they want to search for-->
+        <!--TODO: aling the text box -->
+        <input type="text" class="form-control" placeholder="City" id="user-input" aria-label="Recipient's username"
+          aria-describedby="button-addon2">
+        <!--button that will search for the city-->
+        <button class="button is-success is-rounded " type="button" id="button-addon2">Search</button>
+      </div>
+      <p class="title">
+        MoodMuse
+      </p>
+      <section>
+        <!--Container that holds results from the user input-->
+        <div id='event-container' class="container is-fluid">
+          <ul id='event-list'>
+          </ul>
         </div>
-      
-        <div id="navbarBasicExample" class="navbar-menu">
-          <div class="navbar-start">
-            <a class="navbar-item">
-              Home
-            </a>
-      
-            <a class="navbar-item">
-              Playlists
-            </a>
-      
-            <div class="navbar-item has-dropdown is-hoverable">
-              <a class="navbar-link">
-                More
-              </a>
-      
-              <div class="navbar-dropdown">
-                <a class="navbar-item">
-                  About
-                </a>
-                <a class="navbar-item">
-                  Contact
-                </a>
-                <hr class="navbar-divider">
-                <a class="navbar-item">
-                  Report an issue
-                </a>
-              </div>
-            </div>
-          </div>
-      
-          <div class="navbar-end">
-            <div class="navbar-item">
-              <div class="buttons">
-                <a class="button is-success">
-                  <strong>Sign up</strong>
-                </a>
-                <a class="button is-light">
-                  Log in
-                </a>
-              </div>
-            </div>
-          </div>
+      </section>
+      <p class="subtitle">
+        <!-- Modal to prompt user to enter a city-->
+        <!--pics of the event. -->
+        <!--ToDo: add a hover over the link of the event to then show the image-->
+      <div id='picture-link'>
+        <div id='picture-container'>
         </div>
-      </nav>
-    <section >
-        <div id = 'event-container' class = "container is-fluid" >
-            <div id = "tour-container"></div>
-                <h1>Want to See this band <!--do we want to use band name that is playing?--> live?</h1><br>
-            
-                <ul>
-                    <li>event 1 </li><!--links to shows will be here via api (songkick or ticketmaster)-->
-                    <li>event 2 </li>
-                    <li>event 3 </li>
-                    <li>event 4 </li>
-                    <li>event 5 </li>
-                    <li>event 6 </li>
-                </ul>
-            </div>
-        </div>
-    </section>
-    <section>
-        <div id="player-container" class = 'box'>
-            <h1>Spotify Web Playback SDK Quick Start Tutorial</h1>
-            <h2>Open your console log: <code>View > Developer > JavaScript Console</code></h2>
-            <div id ='current-song'>Link current song</div><!--link from api(spotify)-->
-            <button type='button' id='play' class = "button is-success is-rounded">Play</button>
-            <button type='button' id='pause' class = "button is-danger is-rounded">Pause</button>
-            <button type='button' id='skip' class = "button is-success is-rounded">Skip</button>
-            <button type='button' id='back' class = "button is-success is-rounded">Back</button>
-        </div>
-    </section>
+      </div>
+  </section>
 
 
 
-    
+  <script src="assets/eventpage.js"></script>
 
-
-    <script src="assets/eventpage.js"></script>
- bab46bf1bdf11d9d07ccffdd490931cd09e28cf9
-
-    <script src="https://sdk.scdn.co/spotify-player.js"></script>
-    <script src="assets/sdk.js"></script>
-54ee081a3808c45df07b09dc8d3d4bcf4ca3d784
 </body>
+
 </html>
