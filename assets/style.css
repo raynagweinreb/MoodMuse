@@ -1,7 +1,10 @@
 <<<<<<< HEAD
-
-
-
+*{
+    background: #3273dc;
+}
+body{
+    background: #3273dc;
+}
 .hero {
     text-align: center;
 }

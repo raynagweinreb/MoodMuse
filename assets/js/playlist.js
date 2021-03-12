@@ -3,6 +3,7 @@ mood = localStorage.getItem("mood")
 console.log(mood)
 playlistHeader.append(mood)
 var html=[]
+var homeBtn = document.getElementById('home-btn');
 
 
 
@@ -52,6 +53,9 @@ function getPlaylists(event){
 
     
     
-
+        var sendMeHome = function(){
+          location.href='index.html';
+      }
    
       window.addEventListener("load",getPlaylists)
+      homeBtn.addEventListener('click',sendMeHome);
